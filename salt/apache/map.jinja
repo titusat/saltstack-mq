@@ -1,0 +1,14 @@
+{% set apache = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': 'apache2',
+    'service': 'apache2', 
+	'config': '/etc/apache2/apache2.conf', 
+	'config_source': 'salt://apache/files/apache2.conf'
+  },
+  'RedHat': {
+    'pkg': 'httpd',
+    'service': 'httpd', 
+    'config': '/etc/httpd/conf/httpd.conf', 
+    'config_source': 'salt://apache/files/httpd.conf'
+  },
+})%}
